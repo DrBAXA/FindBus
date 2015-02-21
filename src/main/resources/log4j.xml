@@ -11,8 +11,8 @@
 </appender>
 
     <!-- Services logs -->
-    <logger name="sombra.service">
-        <level value="dabug"/>
+    <logger name="com.findbus">
+        <level value="info"/>
         <appender-ref ref="console"/>
     </logger>
 

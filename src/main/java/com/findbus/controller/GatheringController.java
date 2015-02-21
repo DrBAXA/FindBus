@@ -20,10 +20,10 @@ public class GatheringController {
 
 	@RequestMapping(value = "/{busId}", method = RequestMethod.GET)
 	public ResponseEntity<Void> getData(@PathVariable("busId") int id,
-										@RequestParam double lat,
-										@RequestParam double lng,
-										@RequestParam int timestamp){
-		gatheringService.receiveData(id, new Location(lat, lng, timestamp));
+										@RequestParam("lat") double lat,
+										@RequestParam("lng") double lng,
+										@RequestParam("time") int time){
+		gatheringService.receiveData(id, new Location(lat, lng, time));
 		return new ResponseEntity<>(HttpStatus.NETWORK_AUTHENTICATION_REQUIRED);
 	}
 }

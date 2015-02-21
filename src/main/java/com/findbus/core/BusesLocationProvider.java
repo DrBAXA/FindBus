@@ -19,6 +19,10 @@ public class BusesLocationProvider {
 
     private HashMap<Integer, BusLocationsArray> busesLocationMap;
 
+    public BusesLocationProvider() {
+        busesLocationMap = new HashMap<>();
+    }
+
     public void register(int id){
         if(! busesLocationMap.containsKey(id)){
             busesLocationMap.put(id, (BusLocationsArray)context.getBean("busLocationsArray"));
