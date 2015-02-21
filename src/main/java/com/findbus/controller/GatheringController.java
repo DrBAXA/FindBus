@@ -24,6 +24,6 @@ public class GatheringController {
 										@RequestParam double lng,
 										@RequestParam int timestamp){
 		gatheringService.receiveData(id, new Location(lat, lng, timestamp));
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.NETWORK_AUTHENTICATION_REQUIRED);
 	}
 }
