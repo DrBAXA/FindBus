@@ -1,11 +1,23 @@
 package com.findbus.entity;
 
+import javax.persistence.*;
+
 /**
  * Class that represent one piece information received from GPS
  */
+@Entity
+@Table(name = "stat_points")
 public class Location {
+    @Id
+    @GeneratedValue
+    int id;
+    @Column
+    int busId;
+    @Column
     private double lat;
+    @Column
     private double lng;
+    @Column
     private int timestamp;
 
     public Location() {
@@ -15,6 +27,22 @@ public class Location {
         this.lat = lat;
         this.lng = lng;
         this.timestamp = timestamp;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getBusId() {
+        return busId;
+    }
+
+    public void setBusId(int busId) {
+        this.busId = busId;
     }
 
     public double getLat() {

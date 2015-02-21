@@ -33,7 +33,7 @@ public class AppContext {
         properties.put("hibernate.show_sql",env.getProperty("hibernate.show_sql"));
         properties.put("hibernate.dialect",env.getProperty("hibernate.dialect"));
         return properties;
-    };
+    }
 
     @Bean
     public DataSource dataSource(){
@@ -49,7 +49,7 @@ public class AppContext {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan("findbus.entity", "findbus.dao");
+        entityManagerFactoryBean.setPackagesToScan("com.findbus.entity");
         entityManagerFactoryBean.setPersistenceProviderClass(org.hibernate.jpa.HibernatePersistenceProvider.class);
         entityManagerFactoryBean.setJpaProperties(hibernateProperties());
         entityManagerFactoryBean.setValidationMode(ValidationMode.NONE);
