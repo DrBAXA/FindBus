@@ -7,9 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/gathering")
@@ -20,8 +20,10 @@ public class GatheringController {
 
 	@RequestMapping(value = "/{busId}", method = RequestMethod.GET)
 	public ResponseEntity<Void> getData(@PathVariable("busId") int id,
-						@RequestBody Location location){
-		gatheringService.receiveData(id, location);
+										@RequestParam double lat,
+										@RequestParam double lng,
+										@RequestParam int timestamp){
+		gatheringService.receiveData(id, new Location(lat, lng, timestamp));
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
