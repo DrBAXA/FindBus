@@ -32,6 +32,7 @@ public class AppContext {
         Properties properties = new Properties();
         properties.put("hibernate.show_sql",env.getProperty("hibernate.show_sql"));
         properties.put("hibernate.dialect",env.getProperty("hibernate.dialect"));
+        properties.put("generateDdl",env.getProperty("hibernate.generateDdl"));
         return properties;
     }
 

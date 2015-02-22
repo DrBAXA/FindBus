@@ -7,25 +7,22 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "stat_points")
-public class Location {
+public class BusLocation {
     @Id
     @GeneratedValue
     int id;
     @Column
     int busId;
-    @Column
-    private double lat;
-    @Column
-    private double lng;
+    @Embedded
+    private Coordinate coordinate;
     @Column
     private int timestamp;
 
-    public Location() {
+    public BusLocation() {
     }
 
-    public Location(double lat, double lng, int timestamp) {
-        this.lat = lat;
-        this.lng = lng;
+    public BusLocation(double lat, double lng, int timestamp) {
+        this.coordinate = new Coordinate(lat,lng);
         this.timestamp = timestamp;
     }
 
@@ -45,21 +42,12 @@ public class Location {
         this.busId = busId;
     }
 
-    public double getLat() {
-
-        return lat;
+    public Coordinate getCoordinate() {
+        return coordinate;
     }
 
-    public void setLat(double lat) {
-        this.lat = lat;
-    }
-
-    public double getLng() {
-        return lng;
-    }
-
-    public void setLng(double lng) {
-        this.lng = lng;
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 
     public int getTimestamp() {

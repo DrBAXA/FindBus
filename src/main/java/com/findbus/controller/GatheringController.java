@@ -1,6 +1,6 @@
 package com.findbus.controller;
 
-import com.findbus.entity.Location;
+import com.findbus.entity.BusLocation;
 import com.findbus.service.GatheringService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class GatheringController {
 										@RequestParam("lat") double lat,
 										@RequestParam("lng") double lng,
 										@RequestParam("time") int time){
-		gatheringService.receiveData(id, new Location(lat, lng, time));
+		gatheringService.receiveData(id, new BusLocation(lat, lng, time));
 		return new ResponseEntity<>(HttpStatus.NETWORK_AUTHENTICATION_REQUIRED);
 	}
 }

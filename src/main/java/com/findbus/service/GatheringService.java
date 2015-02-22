@@ -1,7 +1,7 @@
 package com.findbus.service;
 
 import com.findbus.core.BusesLocationProvider;
-import com.findbus.entity.Location;
+import com.findbus.entity.BusLocation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +18,10 @@ public class GatheringService {
     @Autowired
     BusesLocationProvider busesLocationProvider;
 
-    public void receiveData(int busId, Location location){
-        if(busesLocationProvider.checkExist(busId)){
-            busesLocationProvider.putLocation(busId, location);
-        }else{
-            logger.warn("Unregistered bus(id:" + busId + ") want to save location");
+    public void receiveData(int busId, BusLocation busLocation){
+        if(! busesLocationProvider.checkExist(busId)){
+            busesLocationProvider.register(busId);
         }
+        busesLocationProvider.putLocation(busId, busLocation);
     }
 }

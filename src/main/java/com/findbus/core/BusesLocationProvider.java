@@ -1,6 +1,6 @@
 package com.findbus.core;
 
-import com.findbus.entity.Location;
+import com.findbus.entity.BusLocation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -35,13 +35,13 @@ public class BusesLocationProvider {
         }
     }
 
-    public void putLocation(int id, Location location){
+    public void putLocation(int id, BusLocation busLocation){
         if(busesLocationMap.containsKey(id)){
-            busesLocationMap.get(id).put(location);
+            busesLocationMap.get(id).put(busLocation);
         }
     }
 
-    public Location getLocation(int id){
+    public BusLocation getLocation(int id){
         if(busesLocationMap.containsKey(id)){
             return busesLocationMap.get(id).getAverageLocation();
         }else{
