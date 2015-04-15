@@ -45,10 +45,12 @@ public class Main {
 //    }
     public static void sentGet(String lat, String lng, String time){
         try {
-            URL url = new URL("http://localhost:8080/gathering/23?lat="+lat+"&lng="+lng+"&time="+time);
+            //URL url = new URL("http://localhost:8081/gathering/23?lat="+lat+"&lng="+lng+"&time="+time);
+            URL url = new URL("http://localhost:8080/FindBus/gathering/23?lat="+lat+"&lng="+lng+"&time="+time);
             HttpURLConnection connection = (HttpURLConnection)url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("User-Agent", USER_AGENT);
+            connection.setRequestProperty("Content-Type", "text/html;charset=UTF-8");
             int responceCode = connection.getResponseCode();
             System.out.println(responceCode);
         } catch (MalformedURLException e) {

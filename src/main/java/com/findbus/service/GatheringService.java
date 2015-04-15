@@ -24,4 +24,8 @@ public class GatheringService {
         }
         busesLocationProvider.putLocation(busId, busLocation);
     }
+
+    public BusLocation getLocation(int id){
+        return busesLocationProvider.getLocation(id);
+    }
 }
