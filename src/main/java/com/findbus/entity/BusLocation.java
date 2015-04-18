@@ -19,6 +19,7 @@ public class BusLocation {
     private int timestamp;
 
     public BusLocation() {
+        this.coordinate = new Coordinate();
     }
 
     public BusLocation(double lat, double lng, int timestamp) {

@@ -2,17 +2,13 @@ package com.findbus.websocket;
 
 import com.findbus.entity.BusLocation;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.stereotype.Service;
 
 import javax.websocket.EncodeException;
-import javax.websocket.Encoder;
-import javax.websocket.EndpointConfig;
 import java.io.IOException;
 
-/**
- * Created by DrBAX_000 on 15.03.2015.
- */
-public class BusLocationEncoder implements Encoder.Text<BusLocation> {
-    @Override
+@Service
+public class BusLocationEncoder {
     public String encode(BusLocation object) throws EncodeException {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -21,15 +17,5 @@ public class BusLocationEncoder implements Encoder.Text<BusLocation> {
             e.printStackTrace();
             return null;
         }
-    }
-
-    @Override
-    public void init(EndpointConfig config) {
-
-    }
-
-    @Override
-    public void destroy() {
-
     }
 }
