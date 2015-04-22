@@ -1,6 +1,14 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/"/>resources/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4YR8loJtUaiviLc-WxnBsSH9Znt9TNEY"></script>
+    <script src="<c:url value="/"/>resources/richmarker-compiled.js"></script>
+    <script src="<c:url value="/"/>resources/initMap.js"></script>
+    <script type="text/javascript">
+        var url = "<c:url value="/"/>";
+    </script>
     <title>Testing websockets</title>
 </head>
 <body>
@@ -25,8 +33,8 @@
     };
 
     function onMessage(event) {
-        document.getElementById('messages').innerHTML
-                += '<br />' + event.data;
+        var busPos = JSON.parse(event.data);
+        addMarker(busPos.coordinate, "bus");
     }
 
     function onOpen(event) {
@@ -43,5 +51,9 @@
         return false;
     }
 </script>
+
+<div id = "map_container">
+
+</div>
 </body>
 </html>

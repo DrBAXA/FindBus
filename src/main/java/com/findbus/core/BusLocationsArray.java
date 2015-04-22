@@ -46,6 +46,7 @@ public class BusLocationsArray {
             for (BusLocation busLocation : busLocations.subList(0,last)) {
                 sumLat += busLocation.getCoordinate().getLat();
                 sumLng += busLocation.getCoordinate().getLng();
+                result.setBusId(busLocation.getBusId());
             }
         }
 

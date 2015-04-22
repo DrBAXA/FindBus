@@ -45,7 +45,7 @@ public class CoordinateHandler implements MessageHandler.Whole<String> {
 
             // Send the first message to the client
         try {
-            for (int i = 0; i < 10; i++) {
+            while (true) {
                 session.getBasicRemote().sendText(encoder.encode(gatheringService.getLocation(23)));
                 Thread.sleep(2000);
             }
