@@ -14,6 +14,10 @@
 <body>
 <div>
     <input type="submit" value="Start" onclick="start()" />
+    <input type="submit" value="Start" onclick="start()" />
+    <form action="<c:url value="/"/>parseNewRoad">
+        <input type="submit" value="parse" >
+        </form>
 </div>
 <div id="messages"></div>
 <script type="text/javascript">

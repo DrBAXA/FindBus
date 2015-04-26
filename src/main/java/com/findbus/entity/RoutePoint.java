@@ -12,11 +12,9 @@ public class RoutePoint {
     @GeneratedValue
     private int id;
     @Embedded
-    private Coordinate coordinate;
+    private Location location;
     @Column
     private boolean isStation;
-    @Column
-    private int orderValue;
     @ManyToOne
     private Route route;
 
@@ -28,12 +26,12 @@ public class RoutePoint {
         this.id = id;
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public boolean isStation() {
@@ -42,14 +40,6 @@ public class RoutePoint {
 
     public void setStation(boolean isStation) {
         this.isStation = isStation;
-    }
-
-    public int getOrderValue() {
-        return orderValue;
-    }
-
-    public void setOrderValue(int orderValue) {
-        this.orderValue = orderValue;
     }
 
     public Route getRoute() {

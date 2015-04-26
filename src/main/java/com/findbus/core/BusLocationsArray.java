@@ -44,14 +44,14 @@ public class BusLocationsArray {
         synchronized (busLocations) {
             int last = busLocations.size() < activeSize ? busLocations.size() : activeSize;
             for (BusLocation busLocation : busLocations.subList(0,last)) {
-                sumLat += busLocation.getCoordinate().getLat();
-                sumLng += busLocation.getCoordinate().getLng();
+                sumLat += busLocation.getLocation().getLatitude();
+                sumLng += busLocation.getLocation().getLongitude();
                 result.setBusId(busLocation.getBusId());
             }
         }
 
-        result.getCoordinate().setLat(sumLat / activeSize);
-        result.getCoordinate().setLng(sumLng/ activeSize);
+        result.getLocation().setLatitude(sumLat / activeSize);
+        result.getLocation().setLongitude(sumLng / activeSize);
 
         return result;
     }

@@ -14,16 +14,16 @@ public class BusLocation {
     @Column
     int busId;
     @Embedded
-    private Coordinate coordinate;
+    private Location location;
     @Column
     private int timestamp;
 
     public BusLocation() {
-        this.coordinate = new Coordinate();
+        this.location = new Location();
     }
 
     public BusLocation(double lat, double lng, int timestamp) {
-        this.coordinate = new Coordinate(lat,lng);
+        this.location = new Location(lat,lng);
         this.timestamp = timestamp;
     }
 
@@ -43,12 +43,12 @@ public class BusLocation {
         this.busId = busId;
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public int getTimestamp() {
